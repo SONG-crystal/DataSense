@@ -24,14 +24,13 @@ export default function Navbar() {
       <div className="max-w-8xl mx-auto">
         <div className="flex justify-between h-23 py-4">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-xl font-bold text-gray-800">
-              Data Sense
+          <div className="flex-shrink-0 flex items-center pl-37">
+            <Link href="/" class="font-ore text-xl font-bold text-gray-800">
+             <img src="/logo.png" alt="Data Sense" className="w-55 h-15"/>
             </Link>
           </div>
 
-          {/* 로그인/회원가입 버튼 */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 pr-40">
             {status === "authenticated" ? (
               <>
                 <Link
@@ -57,11 +56,11 @@ export default function Navbar() {
             ) : (
               <>
                 <button onClick={() => window.location.href = '/login'}   class="rounded-full bg-transparent hover:bg-gray-600 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
-                  Login
+                  Log in
                 </button> 
 
                 <button onClick={() => window.location.href = '/signup'}  class="rounded-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 ">
-                  Get Started
+                  Get started
                 </button>
               </>
             )}
@@ -111,18 +110,29 @@ export default function Navbar() {
             </button>
           </div> */}
 
+          {/* middle nav-line */}
           <div className="w-full border-t border-gray-300"></div> 
 
           {/* Desktop Menu */}
-
-          <div className="flex justify-between h-16 py-4">
+          <div className="flex justify-start h-16 py-4 pl-37">
             <Link
               href="/about"
-              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+              className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               About
             </Link>
-
+            <Link
+              href="/faq"
+              className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              FAQ
+            </Link>
+            <Link
+              href="/support"
+              className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Support
+            </Link>
           </div>
 
           {/* bottom nav-line */}
