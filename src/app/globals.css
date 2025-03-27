@@ -106,11 +106,21 @@ p{
 }
 
 .section-2 {
-  background-color: rgb(224, 207, 207);  /* 초록색 */
+  background-color: rgb(236, 236, 213);  /* 초록색 */
 }
-.section-3 {
-  background-color: rgb(255, 255, 255);  /* 초록색 */
+.section2-img {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 100%;  /* 최대 너비를 800px로 제한 (최대 크기 설정) */
+  min-width: 600px;
+  padding:0 0 0 50px;
 }
+
+.quote-author {
+  font-size: 2rem; /* Clive Humby만 작게 */
+  text-align: right; /* 오른쪽 정렬 */
+  display: block; /* block으로 설정하여 텍스트를 독립적인 줄로 만듦 */
+}      
 
 /* 스크롤 스냅 */
 .section {
