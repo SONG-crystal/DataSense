@@ -11,6 +11,19 @@ export default function Dashboard() {
 
   return (
     <>
+        
+        {session ? (
+        <>
+          <h1>Welcome, {session.user.name}!</h1>
+          <p>Email: {session.user.email}</p>
+          <button onClick={() => signOut()}>Sign Out</button>
+        </>
+      ) : (
+        <>
+          <h1>You are not signed in.</h1>
+          <button onClick={() => signIn()}>Sign In</button>
+        </>
+      )}
       <div>
 
         <div className="section section-1">
@@ -52,19 +65,7 @@ export default function Dashboard() {
         </div>
 
       </div>
-    
-      {session ? (
-        <>
-          <h1>Welcome, {session.user.name}!</h1>
-          <p>Email: {session.user.email}</p>
-          <button onClick={() => signOut()}>Sign Out</button>
-        </>
-      ) : (
-        <>
-          <h1>You are not signed in.</h1>
-          <button onClick={() => signIn()}>Sign In</button>
-        </>
-      )}
+
     </>
   );
 }
