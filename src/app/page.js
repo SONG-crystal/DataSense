@@ -12,20 +12,21 @@ export default function Dashboard() {
   return (
     <>
         
-        {session ? (
+      {/* {session ? (
         <>
           <h1>Welcome, {session.user.name}!</h1>
           <p>Email: {session.user.email}</p>
           <button onClick={() => signOut()}>Sign Out</button>
+          <i class="fa-solid fa-user"></i>
         </>
       ) : (
         <>
           <h1>You are not signed in.</h1>
           <button onClick={() => signIn()}>Sign In</button>
         </>
-      )}
-      <div>
+      )} */}
 
+      <div>
         <div className="section section-1">
           <div>
             <div className="hero-text">Unlock real-time <br/> sensor insights </div>
@@ -63,9 +64,7 @@ export default function Dashboard() {
             <div className="sub-text"> Turn data into your most valuable asset, <br/> optimize operations and drive impact with actionable insights. <br/>  </div>
           </div>
         </div>
-
       </div>
-
     </>
   );
 }

@@ -9,6 +9,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const { data: session, status } = useSession();
+  const [isDropdownOpen, setDropdownOpen] = useState(false); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,6 +20,8 @@ export default function Navbar() {
     router.push("/login"); // Redirect to login page after sign-out
   };
 
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+
   return (
     <nav >
       <div className="max-w-8xl mx-auto">
@@ -28,30 +31,50 @@ export default function Navbar() {
             <Link href="/" class="font-ore text-xl font-bold text-gray-800">
              <img src="/logo.png" alt="Data Sense" className="w-55 h-15"/>
             </Link>
-          </div>
+          </div> 
 
           <div className="flex items-center space-x-4 pr-40">
             {status === "authenticated" ? (
               <>
-                <Link
-                  href="/dashboard"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Dashboard
-                </Link>
+                <div style={{ position: "relative" }}>
+                <i
+                  className="fa-solid fa-user"
+                  onClick={toggleDropdown}
+                  style={{ cursor: "pointer", fontSize: "25px" }}  //icon size
+                ></i>
 
-                <Link
-                  href="/devices"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Devices
-                </Link>
-                <button
-                  onClick={handleSignOut}
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Sign Out
-                </button>
+                {isDropdownOpen && ( //icon dropdown
+                  <div className="userDropdown"
+                    style={{
+                      position: "absolute",
+                      top: "30px",
+                      backgroundColor: "#fff",
+                      border: "1px solid #ccc",
+                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                      padding: "0px 20px",
+                      borderRadius: "8px"
+                    }}
+                  >
+                    <button className="userBtn"
+                      onClick={() => {
+                        router.push("/profile"); 
+                        setDropdownOpen(false);
+                      }}
+                    >
+                      Profile
+                    </button>
+
+                    <button className="userBtn"
+                      onClick={() => {
+                        handleSignOut();
+                        setDropdownOpen(false);
+                      }}
+                    >
+                      Log Out
+                    </button>
+                  </div>
+                )}
+              </div>
               </>
             ) : (
               <>
@@ -66,6 +89,7 @@ export default function Navbar() {
             )}
           </div>
         </div>
+
 
           {/* Mobile Menu Button */}
           {/* <div className="flex items-center sm:hidden">
@@ -133,6 +157,34 @@ export default function Navbar() {
             >
               Support
             </Link>
+
+            {status === "authenticated" ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Dashboard
+                </Link>
+
+                <Link
+                  href="/devices"
+                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Devices
+                </Link>
+
+                {/* <button
+                  onClick={handleSignOut}
+                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Sign Out
+                </button> */}
+              </>
+            ) : (
+              <>
+              </>
+          )}
           </div>
 
           {/* bottom nav-line */}
