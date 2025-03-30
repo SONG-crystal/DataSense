@@ -21,8 +21,8 @@ const About = () => {
           <div className="flex flex-col justify-center space-y-8">
             <div className="flex items-start space-x-4 text-left">
               <div>
-                <h2 className="text-xl font-bold text-gray-800">Vision</h2>
-                <p className="text-xs text-gray-600">
+                <h2 className="text-3xl font-bold text-gray-800">Vision</h2>
+                <p className="text-ml text-gray-600">
                   Our vision is to revolutionize the industry with innovative technology solutions.
                 </p>
               </div>
@@ -30,8 +30,8 @@ const About = () => {
 
             <div className="flex items-start space-x-4 text-left">
               <div>
-                <h2 className="text-xl font-bold text-gray-800">Mission</h2>
-                <p className="text-xs text-gray-600">
+                <h2 className="text-3xl  font-bold text-gray-800">Mission</h2>
+                <p className="text-ml text-gray-600">
                   Our mission is to empower organizations by providing them with cutting-edge tools
                   for success.
                 </p>
@@ -40,8 +40,8 @@ const About = () => {
 
             <div className="flex items-start space-x-4 text-left">
               <div>
-                <h2 className="text-xl font-bold text-gray-800">Value</h2>
-                <p className="text-xs text-gray-600">
+                <h2 className="text-3xl  font-bold text-gray-800">Value</h2>
+                <p className="text-ml text-gray-600">
                   We believe in integrity, collaboration, and excellence in everything we do.
                 </p>
               </div>
@@ -55,16 +55,16 @@ const About = () => {
         <div className="text-left max-w-7xl mx-auto border p-8 rounded-lg shadow-lg mt-8">
           <div className="space-y-4">
             <div>
-              <h3 className="text-sm font-semibold text-gray-800">Email</h3>
-              <p className="text-sm text-gray-600">contact@company.com</p>
+              <h3 className="text-xl font-semibold text-gray-800">Email</h3>
+              <p className="text-l text-gray-600">contact@company.com</p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-800">Phone</h3>
-              <p className="text-sm text-gray-600">+1 (234) 567-890</p>
+              <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
+              <p className="text-l text-gray-600">+1 (234) 567-890</p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-800">Address</h3>
-              <p className="text-sm text-gray-600">123 Company St, City, Country</p>
+              <h3 className="text-xl font-semibold text-gray-800">Address</h3>
+              <p className="text-l text-gray-600">123 Company St, City, Country</p>
             </div>
           </div>
         </div>
