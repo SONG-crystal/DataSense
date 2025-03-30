@@ -28,7 +28,7 @@ export default function Navbar() {
         <div className="flex justify-between h-23 py-4">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center pl-37">
-            <Link href="/" class="font-ore text-xl font-bold text-gray-800">
+            <Link href="/" className="font-ore text-xl font-bold text-gray-800">
              <img src="/logo.png" alt="Data Sense" className="w-55 h-15"/>
             </Link>
           </div> 
@@ -44,17 +44,7 @@ export default function Navbar() {
                 ></i>
 
                 {isDropdownOpen && ( //icon dropdown
-                  <div className="userDropdown"
-                    style={{
-                      position: "absolute",
-                      top: "30px",
-                      backgroundColor: "#fff",
-                      border: "1px solid #ccc",
-                      boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-                      padding: "0px 20px",
-                      borderRadius: "8px"
-                    }}
-                  >
+                  <div className="userDropdown">
                     <button className="userBtn"
                       onClick={() => {
                         router.push("/profile"); 
@@ -78,11 +68,11 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <button onClick={() => window.location.href = '/login'}   class="rounded-full bg-transparent hover:bg-gray-600 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
+                <button onClick={() => window.location.href = '/login'}   className="rounded-full bg-transparent hover:bg-gray-600 text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded">
                   Log in
                 </button> 
 
-                <button onClick={() => window.location.href = '/signup'}  class="rounded-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 ">
+                <button onClick={() => window.location.href = '/signup'}  className="rounded-full bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 ">
                   Get started
                 </button>
               </>
@@ -150,12 +140,6 @@ export default function Navbar() {
               className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
             >
               FAQ
-            </Link>
-            <Link
-              href="/support"
-              className="text-gray-800 hover:text-gray-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Support
             </Link>
 
             {status === "authenticated" ? (

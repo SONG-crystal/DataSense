@@ -11,11 +11,19 @@
    
      return (
        <>
-
-          <h1>Welcome, {session.user.name}!</h1>
-          <p>Email: {session.user.email}</p>
-
+         {status === "authenticated" ? (
+            <>
+              <div className="profil-text">
+                <p>User: {session.user.name}</p>
+                <p>Email: {session.user.email}</p>
+              </div>
+            </>
+          ) : (
+            <>
+            </> 
+          )}
       </>
     );
   }
   
+
