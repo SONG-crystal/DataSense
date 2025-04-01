@@ -131,12 +131,17 @@ body {
   font-size: 14px;
 }
 
-.profil-text{
-  font-size: 2rem;
-  white-space: nowrap;
-  padding:50px 0 0 150px;
+
+
+
+/* mobile */
+.faq-text {
+  padding: 0px 30px;
 }
 
-.faq-text{
-  padding:10px 150px ;
+/* laptop */
+@media (min-width: 768px) {
+  .faq-text {
+    padding: 10px 150px;
+  }
 }
