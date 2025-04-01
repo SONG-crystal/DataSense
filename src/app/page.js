@@ -11,7 +11,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <div className="hidden md:flex" >
+      <div >
         <div className="section section-1">
           <div>
             <div className="hero-text">Unlock real-time <br/> sensor insights </div>
