@@ -22,8 +22,8 @@ async function connectToDatabase() {
     global.mongoose.promise = mongoose
       .connect(MONGODB_URI, {
         dbName: DB_NAME,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+        // useNewUrlParser: true,
+        // useUnifiedTopology: true,
       })
       .then((mongoose) => {
         console.log(`✅ Connected to MongoDB: ${MONGODB_URI}`);
