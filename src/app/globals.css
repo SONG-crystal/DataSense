@@ -132,8 +132,6 @@ body {
 }
 
 
-
-
 /* mobile */
 .faq-text {
   padding: 0px 30px;
@@ -143,5 +141,60 @@ body {
 @media (min-width: 768px) {
   .faq-text {
     padding: 10px 150px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .section {
+    height: auto; 
+    font-size: 4.5rem;
+    padding: 0 20px; 
+  }
+
+  .hero-text {
+    font-size: 2rem; 
+    padding: 0 20px; 
+    text-align: center; 
+  }
+
+  .sub-text {
+    font-size: 1rem; 
+    padding: 20px 0 0 20px;
+    text-align: center; 
+  }
+
+  .main-img {
+    width: 100%; 
+    max-width: none; 
+    padding: 0;
+  }
+
+  .section-1 {
+    flex-direction: column; 
+    justify-content: center;
+    text-align: center; 
+  }
+
+  .section-1 .box {
+    width: 100%; 
+    padding: 0 20px; 
+  }
+
+  .section-2 {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .section2-img {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .quote-author {
+    font-size: 1.5rem; 
+    text-align: center; 
+    padding: 20px 0;
   }
 }
