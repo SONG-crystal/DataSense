@@ -130,22 +130,22 @@ body {
   white-space: nowrap;
   font-size: 14px;
 }
-
-
-/* mobile */
-.faq-text {
-  padding: 0px 30px;
+.device{
+  padding: 100px 150px; 
 }
+
 
 /* laptop */
-@media (min-width: 768px) {
-  .faq-text {
-    padding: 10px 150px;
-  }
+.faq-text {
+  padding: 10px 150px;
 }
 
-
+/* mobile */
 @media (max-width: 768px) {
+  .faq-text {
+    padding: 0px 30px; 
+  }
+
   .section {
     height: auto; 
     font-size: 4.5rem;
@@ -197,4 +197,14 @@ body {
     text-align: center; 
     padding: 20px 0;
   }
+
+  .device {
+    padding: 30px;
+  }
+
+  .device-img{
+   display:none;
+  }
 }
+
+
