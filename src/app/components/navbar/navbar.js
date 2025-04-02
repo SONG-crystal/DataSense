@@ -170,61 +170,72 @@ export default function Navbar() {
 
       </div>
 
-      {/* Mobile Menu */}
-      <div className={`${isOpen ? "block" : "hidden"} sm:hidden`}>
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          <Link
-            href="/"
-            className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-          >
-            Home
-          </Link>
-          <Link
-            href="/about"
-            className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-          >
-            About
-          </Link> 
-          <Link
-            href="/faq"
-            className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-          >
-            FAQ
-          </Link> 
-          {/* Conditional Rendering for Authenticated Users */}
-          {status === "authenticated" ? (
-            <>
-              <Link
-                href="/dashboard"
-                className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-              >
-                Dashboard
-              </Link>
-              <button
-                onClick={handleSignOut}
-                className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-              >
-                Log Out
-              </button>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/login"
-                className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-              >
-                Login
-              </Link>
-              <Link
-                href="/register"
-                className="block text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium"
-              >
-                Register
-              </Link>
-            </>
-          )}
-        </div> 
-      </div> 
+{/* Mobile Menu */}
+<div className={`${isOpen ? "block" : "hidden"} sm:hidden`}>
+  <div className="px-6 py-4 space-y-4 bg-white text-gray-800 rounded-lg shadow-md transform transition-all duration-300 ease-in-out">
+    <Link
+      href="/"
+      className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+    >
+      Home
+    </Link>
+    <Link
+      href="/about"
+      className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+    >
+      About
+    </Link>
+    <Link
+      href="/faq"
+      className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+    >
+      FAQ
+    </Link>
+    {/* Conditional Rendering for Authenticated Users */}
+    {status === "authenticated" ? (
+      <>
+        <Link
+          href="/dashboard"
+          className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+        >
+          Dashboard
+        </Link>
+        <Link
+          href="/devices"
+          className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+        >
+          Devices
+        </Link>
+        <button
+          onClick={handleSignOut}
+          className="w-full text-left block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+        >
+          Log Out
+        </button>
+      </>
+    ) : (
+      <>
+        <Link
+          href="/login"
+          className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+        >
+          Login
+        </Link>
+        <Link
+          href="/register"
+          className="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md text-base font-medium transition-colors border-b border-gray-200"
+        >
+          Register
+        </Link>
+      </>
+    )}
+  </div>
+</div>
+
+
+
+
+
     </nav>
   );
 }
