@@ -72,3 +72,187 @@
 .hover-lift {
   @apply transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg;
 }
+
+.main-img {
+  width: 100%;
+  max-width: 100%; 
+  min-width: 600px;
+  padding:0 0 0 50px;
+}
+
+.hero-text {
+  font-size: 4.5rem; 
+  white-space: nowrap; /* fix in single line */
+  line-height: 1.2;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 0 0 0 170px;
+}
+.sub-text {
+  font-size: 1.3rem; 
+  white-space: nowrap;  /* fix in single line */
+  padding: 30px 0 0 170px;
+  letter-spacing: 1.5px;
+}
+
+
+html, body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;  
+}
+
+body {
+  scroll-snap-type: y mandatory; 
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  height: 90vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  scroll-snap-align: start;  
+}
+
+.section-1 {
+  background-color: rgb(255, 255, 255); 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.section-1 .box {
+  width: 30%;
+  text-align: left; 
+  padding: 0 50px 0 50px;
+}
+.section-1 h2 {
+  font-size: 1.7rem; 
+  font-weight: bold;
+  border-top: 2px solid #000; 
+  padding: 50px 0 0 0; 
+  margin: 0; 
+}
+.section-1 p{
+  font-size: 1.4rem; 
+  padding: 30px 0 100px 0;
+  margin: 0; 
+}
+
+.section-2 {
+  background-color: rgb(236, 236, 213);  
+}
+.section2-img {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 100%; 
+  min-width: 600px;
+  padding:0 0 0 50px;
+}
+
+.quote-author {
+  font-size: 2rem;
+  text-align: right; 
+  display: block; 
+}      
+
+.userDropdown {
+  position: absolute;
+  top: 30px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0px 20px;
+  border-radius: 8px;
+}
+.userBtn {
+  white-space: nowrap;
+  font-size: 14px;
+}
+.device{
+  padding: 100px 150px; 
+}
+
+
+/* laptop */
+.faq-text {
+  padding: 10px 150px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .faq-text {
+    padding: 0px 30px; 
+  }
+
+  .section {
+    height: auto; 
+    font-size: 4.5rem;
+    padding: 0 20px; 
+  }
+
+  .hero-text {
+    font-size: 2rem; 
+    padding: 0 20px; 
+    text-align: center; 
+  }
+
+  .sub-text {
+    font-size: 1rem; 
+    padding: 20px 0 0 20px;
+    text-align: center; 
+  }
+
+  .main-img {
+    width: 100%; 
+    max-width: none; 
+    padding: 0;
+  }
+
+  .section-1 {
+    flex-direction: column; 
+    justify-content: center;
+    text-align: center; 
+  }
+
+  .section-1 .box {
+    width: 100%; 
+    padding: 0 20px; 
+  }
+
+  .section-2 {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .section2-img {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .quote-author {
+    font-size: 1.5rem; 
+    text-align: center; 
+    padding: 20px 0;
+  }
+
+  .device {
+    padding: 30px;
+  }
+
+  .device-img{
+   display:none;
+  }
+}
+
+

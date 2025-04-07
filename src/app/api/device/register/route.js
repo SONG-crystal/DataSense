@@ -66,7 +66,7 @@ export async function POST(req) {
 
     // Step 2: User registers the device
     if (mode === "user") {
-      console.log("in user");
+      console.log("available devices: ", registeredDevices);
       if (!session) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }

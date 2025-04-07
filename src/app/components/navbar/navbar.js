@@ -20,6 +20,8 @@ export default function Navbar() {
     router.push("/login"); // Redirect to login page after sign-out
   };
 
+  const toggleDropdown = () => setDropdownOpen((prev) => !prev);
+
   return (
     <nav className="bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,7 +136,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`${isOpen ? "block" : "hidden"} sm:hidden bg-white border-t`}>
+      <div
+        className={`${isOpen ? "block" : "hidden"} sm:hidden bg-white border-t`}
+      >
         <div className="px-2 pt-2 pb-3 space-y-1">
           <Link
             href="/"

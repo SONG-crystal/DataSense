@@ -15,15 +15,15 @@ export const metadata = {
   generator: "Next.js",
   icons: {
     icon: [
-      { url: '/logo-transparent.png' },
-      { url: '/logo-transparent.png', sizes: '16x16', type: 'image/png' },
-      { url: '/logo-transparent.png', sizes: '32x32', type: 'image/png' },
-      { url: '/logo-transparent.png', sizes: '192x192', type: 'image/png' },
-      { url: '/logo-transparent.png', sizes: '512x512', type: 'image/png' },
+      { url: "/logo-transparent.png" },
+      { url: "/logo-transparent.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo-transparent.png", sizes: "32x32", type: "image/png" },
+      { url: "/logo-transparent.png", sizes: "192x192", type: "image/png" },
+      { url: "/logo-transparent.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: { url: '/logo-transparent.png' },
-    shortcut: { url: '/logo-transparent.png' }
-  }
+    apple: { url: "/logo-transparent.png" },
+    shortcut: { url: "/logo-transparent.png" },
+  },
 };
 
 export default async function RootLayout({ children }) {
@@ -31,15 +31,15 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen bg-background text-foreground flex flex-col`}>
+      <body
+        className={`${inter.className} min-h-screen bg-background text-foreground flex flex-col`}
+      >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <SessionProvider>
             <DevicesContextWrapper>
               <div className="flex flex-col min-h-screen">
                 <Navbar />
-                <main className="flex-grow">
-                  {children}
-                </main>
+                <main className="flex-grow">{children}</main>
                 <Footer />
               </div>
             </DevicesContextWrapper>
