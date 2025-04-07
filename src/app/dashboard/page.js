@@ -136,8 +136,9 @@ export default function DashboardPage() {
                 <div className="px-4 py-5 sm:p-6">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 bg-red-100 rounded-md p-3">
-                      <svg className="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                      {/* Thermometer icon */}
+                      <svg className="h-6 w-6 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z" />
                       </svg>
                     </div>
                     <div className="ml-5 w-0 flex-1">
@@ -146,7 +147,7 @@ export default function DashboardPage() {
                       </dt>
                       <dd className="flex items-baseline">
                         <div className="text-2xl font-semibold text-gray-900">
-                          {temperatureData.reduce((acc, curr) => acc + curr.temperature, 0) / temperatureData.length || 0}°C
+                          {(temperatureData.reduce((acc, curr) => acc + curr.temperature, 0) / temperatureData.length || 0).toFixed(1)}°C
                         </div>
                       </dd>
                     </div>
@@ -159,8 +160,9 @@ export default function DashboardPage() {
                 <div className="px-4 py-5 sm:p-6">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 bg-blue-100 rounded-md p-3">
-                      <svg className="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                      {/* Water droplet icon */}
+                      <svg className="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
                       </svg>
                     </div>
                     <div className="ml-5 w-0 flex-1">
@@ -169,7 +171,7 @@ export default function DashboardPage() {
                       </dt>
                       <dd className="flex items-baseline">
                         <div className="text-2xl font-semibold text-gray-900">
-                          {humidityData.reduce((acc, curr) => acc + curr.humidity, 0) / humidityData.length || 0}%
+                          {(humidityData.reduce((acc, curr) => acc + curr.humidity, 0) / humidityData.length || 0).toFixed(1)}%
                         </div>
                       </dd>
                     </div>
@@ -182,8 +184,9 @@ export default function DashboardPage() {
                 <div className="px-4 py-5 sm:p-6">
                   <div className="flex items-center">
                     <div className="flex-shrink-0 bg-green-100 rounded-md p-3">
-                      <svg className="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                      {/* Plant/Soil moisture icon */}
+                      <svg className="h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                       </svg>
                     </div>
                     <div className="ml-5 w-0 flex-1">
@@ -192,7 +195,7 @@ export default function DashboardPage() {
                       </dt>
                       <dd className="flex items-baseline">
                         <div className="text-2xl font-semibold text-gray-900">
-                          {moistureData.reduce((acc, curr) => acc + curr.moisture, 0) / moistureData.length || 0}%
+                          {(moistureData.reduce((acc, curr) => acc + curr.moisture, 0) / moistureData.length || 0).toFixed(1)}%
                         </div>
                       </dd>
                     </div>

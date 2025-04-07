@@ -3,6 +3,7 @@
 import { useDevices } from "@/app/context/deviceContext";
 import { useState, useEffect, use } from "react";
 import Chart from "@/app/components/charts/line";
+import Link from "next/link";
 
 export default function DevicePage({ params }) {
   const { deviceId } = use(params);
@@ -53,8 +54,14 @@ export default function DevicePage({ params }) {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold">Device ID: {deviceId}</h1>
+      
+      <div className="mt-4">
+        <Link href={`/device/${deviceId}/live`} className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+          View Live Data
+        </Link>
+      </div>
 
-      <div>
+      <div className="mt-6">
         <Chart
           temperatureData={data.temperature}
           humidityData={data.humidity}

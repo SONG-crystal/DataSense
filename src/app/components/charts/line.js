@@ -60,6 +60,18 @@ const Chart = ({ temperatureData, humidityData, moistureData }) => {
   // Set options for the chart
   const chartOptions = {
     responsive: true,
+    plugins: {
+      legend: {
+        position: "top",
+        labels: {
+          font: {
+            size: 15,
+            weight: "bold",
+          },
+          padding: 50,
+        },
+      },
+    },
     scales: {
       y1: {
         type: "linear",
@@ -69,7 +81,11 @@ const Chart = ({ temperatureData, humidityData, moistureData }) => {
         },
         title: {
           display: true,
-          text: "Temperature (°C)",
+          text: "Celsius (°C)",
+          font: {
+            size: 20,
+            weight: "bold",
+          },
         },
       },
       y2: {
@@ -80,6 +96,10 @@ const Chart = ({ temperatureData, humidityData, moistureData }) => {
         },
         title: {
           display: true,
+          font: {
+            size: 20,
+            weight: "bold",
+          },
           text: "Percentage (%)",
         },
       },

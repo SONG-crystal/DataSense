@@ -51,8 +51,8 @@ export default function AboutPage() {
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
             Our Team
           </h2>
-          <div className="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {/* Team Member 1 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-5xl mx-auto">
+            {/* Henly Su */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 bg-[#E6F0FF] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <svg
@@ -71,12 +71,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-gray-900">
-                Alex Chen
+                Henly Su
               </h3>
-              <p className="text-[#1456BC] font-medium mb-3">Lead Developer</p>
             </div>
 
-            {/* Team Member 2 */}
+            {/* Jon Pablo */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 bg-[#E6F0FF] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <svg
@@ -95,12 +94,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-gray-900">
-                Priya Sharma
+                Jon Pablo
               </h3>
-              <p className="text-[#1456BC] font-medium mb-3">UX Designer</p>
             </div>
 
-            {/* Team Member 3 */}
+            {/* Mustafa Toygar Baykal */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 bg-[#E6F0FF] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <svg
@@ -119,12 +117,11 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-gray-900">
-                Marcus Johnson
+                Mustafa Toygar Baykal
               </h3>
-              <p className="text-[#1456BC] font-medium mb-3">Data Scientist</p>
             </div>
 
-            {/* Team Member 4 */}
+            {/* Rutarj Mrushad Shah */}
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
               <div className="w-32 h-32 bg-[#E6F0FF] rounded-full mx-auto mb-6 flex items-center justify-center">
                 <svg
@@ -143,9 +140,31 @@ export default function AboutPage() {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-1 text-gray-900">
-                Sophia Kim
+                Rutarj Mrushad Shah
               </h3>
-              <p className="text-[#1456BC] font-medium mb-3">IoT Specialist</p>
+            </div>
+
+            {/* Sujung Song */}
+            <div className="bg-white p-6 rounded-lg shadow-md text-center">
+              <div className="w-32 h-32 bg-[#E6F0FF] rounded-full mx-auto mb-6 flex items-center justify-center">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-16 w-16 text-[#1456BC]"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold mb-1 text-gray-900">
+                Sujung Song
+              </h3>
             </div>
           </div>
         </div>
