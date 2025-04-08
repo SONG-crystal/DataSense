@@ -9,10 +9,8 @@ const MQTT_BROKER =
   "wss://9f153fb50aea4234875db6b86d42af5b.s1.eu.hivemq.cloud:8884/mqtt";
 const MQTT_USER = "pico-w";
 const MQTT_PASSWORD = "Password1";
-const MQTT_TOPIC_SENSOR = "device/e66180109f399025/live-data";
-const MQTT_TOPIC_CONTROL = "device/e66180109f399025/control";
 
-export default function MqttSubscriber() {
+export default function MqttSubscriber({ deviceId }) {
   const [message, setMessage] = useState("");
   const [client, setClient] = useState(null);
   const [temperatureData, setTemperatureData] = useState([]);
@@ -26,6 +24,9 @@ export default function MqttSubscriber() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [isMonitoring, setIsMonitoring] = useState(false);
+
+  const MQTT_TOPIC_SENSOR = `device/${deviceId}/live-data`;
+  const MQTT_TOPIC_CONTROL = `device/${deviceId}/control`;
 
   useEffect(() => {
     const mqttClient = mqtt.connect(MQTT_BROKER, {
