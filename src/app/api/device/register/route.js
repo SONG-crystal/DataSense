@@ -90,7 +90,7 @@ export async function POST(req) {
         });
         // 3. save
         await newRaspberryPi.save();
-        print("New Device Registered...");
+        console.log("New Device Registered...");
       }
       // // Notify waiting device (if still waiting)
       // if (waitingDevices.has(device_id)) {
