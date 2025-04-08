@@ -45,31 +45,13 @@ export async function POST(req) {
 
     console.log(`Received request: ${mode}, Device ID: ${device_id}`);
 
-    // // Step 1: Device registers itself and waits for user
-    // if (mode === "device") {
-    //   if (registeredDevices.has(device_id)) {
-    //     return NextResponse.json(
-    //       { message: "Device already registered" },
-    //       { status: 409 }
-    //     );
-    //   }
-
-    //   registeredDevices.add(device_id);
-    //   console.log(`Device registered: ${device_id}, waiting for user...`);
-
-    //   // Wait for user to register or timeout
-    //   const result = await waitForUserToRegister(device_id);
-    //   return NextResponse.json(result, { status: result.success ? 200 : 408 }); // 408 for timeout
-    // }
-
-    // await connectToDatabase();
-
-    // Step 2: User registers the device
+    // Step 1: User registers the device
     if (mode === "user") {
       // console.log("available devices: ", registeredDevices);
       if (!session) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
+      await connectToDatabase();
 
       // if (!registeredDevices.has(device_id)) {
       //   return NextResponse.json(
@@ -78,20 +60,21 @@ export async function POST(req) {
       //   );
       // }
 
-      const userId = session.user.id;
+      // const userId = session.user.id;
       // registeredDevices.delete(device_id); // Remove from temporary storage
 
       // Save device-user mapping in MongoDB
       const serialId = device_id;
       //  1. get the user object
+      console.log("Finding user...");
       const user = await User.findOne({ email: session.user.email });
-
       if (!user) {
         throw new Error("User not found");
       }
 
+      console.log("User found!...");
+
       // 2. create a new Raspberry Pi
-      await connectToDatabase();
       // 2a. check if device already exists
       const device = await RaspberryPi.findOne({ serialId: serialId });
       if (device) {
@@ -133,9 +116,9 @@ export async function POST(req) {
   }
 }
 
-// Optional: Allow GET to view registered devices (for testing)
-export async function GET() {
-  return NextResponse.json({
-    registeredDevices: Array.from(registeredDevices),
-  });
-}
+// // Optional: Allow GET to view registered devices (for testing)
+// export async function GET() {
+//   return NextResponse.json({
+//     registeredDevices: Array.from(registeredDevices),
+//   });
+// }
