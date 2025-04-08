@@ -6,29 +6,29 @@ import { RaspberryPi } from "@/models/raspberryPi";
 
 import connectToDatabase from "@/lib/mongodb";
 
-const registeredDevices = new Set();
-const waitingDevices = new Map(); // Map to track waiting devices (device_id: resolve function)
+// const registeredDevices = new Set();
+// const waitingDevices = new Map(); // Map to track waiting devices (device_id: resolve function)
 
-// Function to wait for up to 30 seconds
-const waitForUserToRegister = (device_id) => {
-  return new Promise((resolve) => {
-    const timeout = setTimeout(() => {
-      waitingDevices.delete(device_id); // Remove from waiting list after timeout
-      registeredDevices.delete(device_id); // Cleanup
-      resolve({
-        success: false,
-        message: "User did not register the device in time",
-      });
-    }, 30000); // 30 seconds
+// // Function to wait for up to 30 seconds
+// const waitForUserToRegister = (device_id) => {
+//   return new Promise((resolve) => {
+//     const timeout = setTimeout(() => {
+//       waitingDevices.delete(device_id); // Remove from waiting list after timeout
+//       registeredDevices.delete(device_id); // Cleanup
+//       resolve({
+//         success: false,
+//         message: "User did not register the device in time",
+//       });
+//     }, 30000); // 30 seconds
 
-    // Store resolve function so user can manually resolve it later
-    waitingDevices.set(device_id, (result) => {
-      clearTimeout(timeout); // Stop timeout if user registers in time
-      waitingDevices.delete(device_id);
-      resolve(result);
-    });
-  });
-};
+//     // Store resolve function so user can manually resolve it later
+//     waitingDevices.set(device_id, (result) => {
+//       clearTimeout(timeout); // Stop timeout if user registers in time
+//       waitingDevices.delete(device_id);
+//       resolve(result);
+//     });
+//   });
+// };
 
 // POST /api/devices/register
 export async function POST(req) {
@@ -45,41 +45,41 @@ export async function POST(req) {
 
     console.log(`Received request: ${mode}, Device ID: ${device_id}`);
 
-    // Step 1: Device registers itself and waits for user
-    if (mode === "device") {
-      if (registeredDevices.has(device_id)) {
-        return NextResponse.json(
-          { message: "Device already registered" },
-          { status: 409 }
-        );
-      }
+    // // Step 1: Device registers itself and waits for user
+    // if (mode === "device") {
+    //   if (registeredDevices.has(device_id)) {
+    //     return NextResponse.json(
+    //       { message: "Device already registered" },
+    //       { status: 409 }
+    //     );
+    //   }
 
-      registeredDevices.add(device_id);
-      console.log(`Device registered: ${device_id}, waiting for user...`);
+    //   registeredDevices.add(device_id);
+    //   console.log(`Device registered: ${device_id}, waiting for user...`);
 
-      // Wait for user to register or timeout
-      const result = await waitForUserToRegister(device_id);
-      return NextResponse.json(result, { status: result.success ? 200 : 408 }); // 408 for timeout
-    }
+    //   // Wait for user to register or timeout
+    //   const result = await waitForUserToRegister(device_id);
+    //   return NextResponse.json(result, { status: result.success ? 200 : 408 }); // 408 for timeout
+    // }
 
-    await connectToDatabase();
+    // await connectToDatabase();
 
     // Step 2: User registers the device
     if (mode === "user") {
-      console.log("available devices: ", registeredDevices);
+      // console.log("available devices: ", registeredDevices);
       if (!session) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
       }
 
-      if (!registeredDevices.has(device_id)) {
-        return NextResponse.json(
-          { error: "Device not found or timeout expired" },
-          { status: 404 }
-        );
-      }
+      // if (!registeredDevices.has(device_id)) {
+      //   return NextResponse.json(
+      //     { error: "Device not found or timeout expired" },
+      //     { status: 404 }
+      //   );
+      // }
 
       const userId = session.user.id;
-      registeredDevices.delete(device_id); // Remove from temporary storage
+      // registeredDevices.delete(device_id); // Remove from temporary storage
 
       // Save device-user mapping in MongoDB
       const serialId = device_id;
@@ -95,7 +95,9 @@ export async function POST(req) {
       // 2a. check if device already exists
       const device = await RaspberryPi.findOne({ serialId: serialId });
       if (device) {
-        throw new Error("Device already registered");
+        // throw new Error("Device already registered");
+        console.log("Device Exists...");
+        return NextResponse.json({ message: "Device exists" }, { status: 200 });
       } else {
         // not registered yet
         const newRaspberryPi = new RaspberryPi({
@@ -105,15 +107,15 @@ export async function POST(req) {
         });
         // 3. save
         await newRaspberryPi.save();
+        print("New Device Registered...");
       }
-      // Notify waiting device (if still waiting)
-      if (waitingDevices.has(device_id)) {
-        waitingDevices.get(device_id)({
-          success: true,
-          message: "Device linked to user",
-        });
-      }
-      console.log(`Device ${device_id} linked to user ${userId}`);
+      // // Notify waiting device (if still waiting)
+      // if (waitingDevices.has(device_id)) {
+      //   waitingDevices.get(device_id)({
+      //     success: true,
+      //     message: "Device linked to user",
+      //   });
+      // }
 
       return NextResponse.json(
         { message: "Device linked successfully" },
